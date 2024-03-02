@@ -46,7 +46,7 @@ type SetupResult struct {
 
 func LoadConfig(configPath string) *SetupResult {
 
-	viper.SetEnvPrefix("tinyurl")
+	viper.SetEnvPrefix("url-shortener")
 	viper.AddConfigPath(".")
 	viper.AutomaticEnv()
 	viper.SetConfigFile(configPath)
