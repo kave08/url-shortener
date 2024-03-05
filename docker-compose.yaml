@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  tinyurl:
+    build: .
+    image: kave/tinyurl:latest
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mariadb
+      - redis
+
+  mariadb:
+    image: mariadb
+    environment:
+      - MARIADB_USER=kave
+      - MARIADB_PASSWORD=kave-password
+      - MARIADB_ROOT_PASSWORD=kave-root-password
+    ports:
+      - "3306:3306"
+
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
